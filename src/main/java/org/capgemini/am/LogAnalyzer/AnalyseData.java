@@ -19,6 +19,7 @@ import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import org.apache.log4j.Logger;
 
 import org.jfree.chart.ChartPanel;
 import org.jfree.ui.ApplicationFrame;
@@ -26,6 +27,8 @@ import org.jfree.ui.RefineryUtilities;
 
 public class AnalyseData extends ApplicationFrame{
 
+        final static Logger ADLog = Logger.getLogger(AnalyseData.class);
+        
 	Map<String, Map<String, Long[]>> thirdPartyResponse = new LinkedHashMap<String, Map<String, Long[]>>();
 	Map<String, Long> thirdPartyAverageResponse = new LinkedHashMap<String, Long>();
 	ChartPanel panels[];
@@ -182,9 +185,13 @@ public class AnalyseData extends ApplicationFrame{
 			FinalLog.close();		
 			thirdPartyAverageResponse = null;
 			thirdPartyResponse = null;
+                        
+                        ADLog.info("INFO logs");
 			return 0;
 		} catch (Exception e) {	
 			e.printStackTrace();
+                        
+                        ADLog.info("INFO logs");
 			return 1;
 		}
 	}
@@ -202,6 +209,8 @@ public class AnalyseData extends ApplicationFrame{
 		}else {
 			System.out.println("Error while processing logs.");
 		}
+                
+                ADLog.info("INFO logs");
 				
 	}
 	public void addPanels(){
@@ -211,7 +220,6 @@ public class AnalyseData extends ApplicationFrame{
 		add(previousButton, BorderLayout.WEST);
 		add(nextButton, BorderLayout.EAST);
 		previousButton.addActionListener(new ActionListener() {
-		    @Override
 		    public void actionPerformed(ActionEvent event) {
 		        if (currentChartNo > 0) {
 		            getContentPane().remove(currentChartPanel);
@@ -228,7 +236,6 @@ public class AnalyseData extends ApplicationFrame{
 		    }
 		});
 		nextButton.addActionListener(new ActionListener() {
-		    @Override
 		    public void actionPerformed(ActionEvent event) {
 		        if (currentChartNo < panels.length - 1) {
 		            getContentPane().remove(currentChartPanel);
@@ -247,6 +254,6 @@ public class AnalyseData extends ApplicationFrame{
 		pack();
 		RefineryUtilities.centerFrameOnScreen(this);
 		setVisible(true);
-		
+		ADLog.info("INFO logs");
 	}
 }
