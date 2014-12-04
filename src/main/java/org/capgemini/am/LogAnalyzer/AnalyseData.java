@@ -186,7 +186,7 @@ public class AnalyseData extends ApplicationFrame{
 			thirdPartyAverageResponse = null;
 			thirdPartyResponse = null;
                         
-                        ADLog.info("INFO logs");
+                        ADLog.info("INFO test logs");
 			return 0;
 		} catch (Exception e) {	
 			e.printStackTrace();
