@@ -27,8 +27,8 @@
                             <addClasspath>true</addClasspath>
                             <mainClass>org.capgemini.am.LogAnalyzer.AnalyseData</mainClass>
                         </manifest>
-                        <source>1.6</source>
-                        <target>1.6</target>
+                        <source>1.7</source>
+                        <target>1.7</target>
                     </archive>
                 </configuration>
             </plugin>
