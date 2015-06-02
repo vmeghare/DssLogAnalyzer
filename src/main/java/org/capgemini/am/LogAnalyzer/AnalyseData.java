@@ -70,7 +70,7 @@ public class AnalyseData extends ApplicationFrame{
 					sCurrentLine = sCurrentLine.replaceFirst(",", ":");
 					
 					
-					Date date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS", Locale.ENGLISH).parse(sCurrentLine.substring(0,sCurrentLine.indexOf(",")));
+					Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS", Locale.ENGLISH).parse(sCurrentLine.substring(0,sCurrentLine.indexOf(",")));
 					String thirdParty = sCurrentLine.substring(sCurrentLine.indexOf("INFO")+5,sCurrentLine.indexOf("-",sCurrentLine.indexOf("INFO")+5)-1);
 					String CorrelationID = sCurrentLine.substring(sCurrentLine.indexOf("CorrelationID:")+14);
 					if(thirdPartyResponse.containsKey(thirdParty)) {
@@ -96,7 +96,7 @@ public class AnalyseData extends ApplicationFrame{
 				else if(sCurrentLine.contains("Response received")) {
 					
 					sCurrentLine = sCurrentLine.replaceFirst(",", ":");
-					Date date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS", Locale.ENGLISH).parse(sCurrentLine.substring(0,sCurrentLine.indexOf(",")));
+					Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS", Locale.ENGLISH).parse(sCurrentLine.substring(0,sCurrentLine.indexOf(",")));
 					String thirdParty = sCurrentLine.substring(sCurrentLine.indexOf("INFO")+5,sCurrentLine.indexOf("-",sCurrentLine.indexOf("INFO")+5)-1);
 					String CorrelationID = sCurrentLine.substring(sCurrentLine.indexOf("CorrelationID:")+14);
 					if(thirdPartyResponse.containsKey(thirdParty)){
@@ -147,7 +147,7 @@ public class AnalyseData extends ApplicationFrame{
 						Long TotalTime = thirdPartyAverageResponse.get(thirdParty.getKey());
 						TotalTime = TotalTime + corrlationID.getValue()[1];
 						thirdPartyAverageResponse.put(thirdParty.getKey(), TotalTime);
-						SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS aa", Locale.ENGLISH);
+						SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS", Locale.ENGLISH);
 						String requestedDate = date.format(new Date(corrlationID.getValue()[0]));
 						DataLog.append(thirdParty.getKey()+","+requestedDate+","+corrlationID.getKey()+","+ corrlationID.getValue()[1]+"\n");
 						if(corrlationID.getValue()[1] > MaxTime){
